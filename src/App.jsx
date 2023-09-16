@@ -5,7 +5,7 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import GitHubSearch from "./pages/GitHubSearch";
 import Question from "./pages/Question";
-// import Topic from "./pages/Topic";
+import Topic from "./pages/TopicSearch";
 import VideoSearch from "./pages/VideoSearch";
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
         <Route path ="/" element={<HomePage/>}/>
         <Route path ="/github" element={<GitHubSearch/>}/>
         <Route path ="/question" element={<Question/>}/>
-        {/* <Route path ="/topic" element={<Topic/>}/> */}
+        <Route path ="/topic" element={<Topic/>}/>
         <Route path ="/video" element={<VideoSearch/>}/>
         </Route>
 

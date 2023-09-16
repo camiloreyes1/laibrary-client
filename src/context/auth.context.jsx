@@ -25,7 +25,7 @@ function AuthProvider({ children }) {
 
     if (storedToken) {
 
-    get('/auth/verify')
+    get('auth/verify')
       .then((response) => {
 
         const user = response.data;
@@ -37,7 +37,7 @@ function AuthProvider({ children }) {
         setUser(user);        
       })
       .catch((error) => {
-        console.lof(error)
+        console.log(error)
         removeToken();       
         setIsLoggedIn(false);
         setIsLoading(false);

@@ -76,8 +76,8 @@ function SignupPage() {
           <InputGroup hasValidation>
             <Form.Control
               type="text"
-              name="username"
-              value={user.username}
+              name="occupation"
+              value={user.occupation}
               onChange={handleTextChange}
             />
           </InputGroup>
