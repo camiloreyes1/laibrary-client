@@ -1,5 +1,5 @@
-import { post } from "../services/authService"
-import { useState, useContext } from "react"
+import { post } from "../services/authService";
+import { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -7,20 +7,24 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
 const Question = () => {
-  const [question, setQuestion] = useState("")
+  const [question, setQuestion] = useState("");
   const { user } = useContext(AuthContext);
-  const [asked, setState] = useState(false)
-  const [gptText, setText] = useState("")
+  const [asked, setState] = useState(false);
+  const [gptText, setText] = useState("");
   let job;
-  if(user) {job = user.occupation;}
+  if(user){
+    job = user.occupation;
+  }
 
-  const requestBody = { job, question }
+  const requestBody = { job, question };
 
   const handleQuestion = (e) => setQuestion(e.target.value);
 
   const ask = (e) => {
     e.preventDefault();
     setState(true)
+    console.log("Request body ===>",requestBody)
+    console.log("User ===>",user)
     post('api/search', requestBody)
       .then((response) => {
         setState(false)
@@ -40,7 +44,7 @@ const Question = () => {
 
       {asked && <img src="https://res.cloudinary.com/dyto7dlgt/image/upload/v1691760277/project3/spinner_jtv0k4.gif" alt="spinner" />}
 
-      {gptText.length && <p>{gptText}</p>}
+      {gptText.length ? <p>{gptText}</p> : <br></br>}
 
       <div><Row className="mb-3">
         <form onSubmit={ask}>
