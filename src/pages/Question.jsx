@@ -54,7 +54,8 @@ const Question = () => {
             <Form.Control
               onSubmit={ask}
               type="text"
-              name="email"
+              name="question"
+              placeholder="Just ask.."
               value={question}
               onChange={handleQuestion}
             >

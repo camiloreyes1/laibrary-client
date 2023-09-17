@@ -46,11 +46,16 @@ function LoginPage() {
     <div className="LoginPage">
       <div class="m-3">
 
-      <h1>Login</h1>
+        <br></br>
+
+      <h1 className="d-flex flex-wrap justify-content-xl-center">Login</h1>
       <br></br>
+
+      <div className="d-flex flex-wrap justify-content-xl-center">
+
       <Row className="mb-3">
         <form onSubmit={handleLoginSubmit}>
-          <Form.Group as={Col} md="3" controlId="validationCustom01">
+          <Form.Group as={Col} md="12" controlId="validationCustom01">
 
             <Form.Label>Email</Form.Label>
             <Form.Control
@@ -64,7 +69,7 @@ function LoginPage() {
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group as={Col} md="3" controlId="validationCustom02">
+          <Form.Group as={Col} md="15" controlId="validationCustom02">
             <Form.Label>Password</Form.Label>
             <Form.Control
               onSubmit={handleLoginSubmit}
@@ -75,15 +80,21 @@ function LoginPage() {
             />
           </Form.Group>
           <br></br>
+          <div className="d-grid gap-2">
           <Button type="submit">Login</Button>
+
+
+          </div>
         </form>
       </Row>
 
+      </div>
+
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
+      <p className="d-flex flex-wrap justify-content-xl-center">Don't have an account yet?</p>
 
-      <Link to="/signup"> Sign Up</Link>
+      <Link className="d-flex flex-wrap justify-content-xl-center" to="/signup"> Sign Up</Link>
       </div>
     </div>
   )

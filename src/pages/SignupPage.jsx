@@ -52,14 +52,18 @@ function SignupPage() {
 
   return (
     <div className="SignupPage">
-      <div class="m-3">
+      <div className="m-3">
+<br></br>
 
-
-      <h1>Sign Up</h1>
+      <h1 className="d-flex flex-wrap justify-content-xl-center">Sign Up</h1>
       <br></br>
-    <form onSubmit={handleSignupSubmit}>
+
+    <form  onSubmit={handleSignupSubmit}>
+
+      <div className="d-flex flex-wrap justify-content-xl-center">
+
       <Row className="mb-3">
-        <Form.Group as={Col} md="3" controlId="validationCustom01">
+        <Form.Group as={Col} md="12" controlId="validationCustom01">
           <Form.Label>Full name</Form.Label>
           <Form.Control
             type="text"
@@ -71,7 +75,7 @@ function SignupPage() {
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group as={Col} md="3" controlId="validationCustom02">
+        <Form.Group as={Col} md="12" controlId="validationCustom02">
           <Form.Label>Occupation</Form.Label>
           <InputGroup hasValidation>
             <Form.Control
@@ -84,8 +88,12 @@ function SignupPage() {
         </Form.Group>
       </Row>
 
+      </div>
+      <br></br>
+      <div className="d-flex flex-wrap justify-content-xl-center">
+
       <Row className="mb-3">
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
+        <Form.Group as={Col} md="12" controlId="validationCustom01">
           <Form.Label>Email</Form.Label>
           <Form.Control
            type="email"
@@ -97,7 +105,7 @@ function SignupPage() {
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group as={Col} md="3" controlId="validationCustom01">
+        <Form.Group as={Col} md="12" controlId="validationCustom01">
           <Form.Label>Password</Form.Label>
           <Form.Control
          type="password"
@@ -107,19 +115,26 @@ function SignupPage() {
           >
           </Form.Control>
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          <br></br>
+          <div className="d-grid gap-2">
+
+        <Button  type="submit" size="md">Sign Up</Button>
+
+          </div>
         </Form.Group>
       </Row>
-        <Button type="submit">Sign Up</Button>
+
+        <br></br>
+  
+      </div>
+
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+      <p className="d-flex flex-wrap justify-content-xl-center">Already have account?</p>
+      <Link className="d-flex flex-wrap justify-content-xl-center" to="/login"> Login</Link>
       </form>
 
         
-        <br></br>
-        <br></br>
-  
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Already have account?</p>
-      <Link to="/login"> Login</Link>
       </div>
     </div>
   )
