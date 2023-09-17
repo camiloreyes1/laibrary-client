@@ -26,7 +26,7 @@ const TopicSearch = () => {
     setState(true)
     console.log("Request body ===>", requestBody)
     console.log("User ===>", user)
-    post('api/topic', requestBody)
+    post('/api/topic', requestBody)
       .then((response) => {
         setState(false)
         console.log('GPT answer', response.data);

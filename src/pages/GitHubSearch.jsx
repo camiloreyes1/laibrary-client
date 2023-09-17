@@ -51,7 +51,7 @@ const GitHubSearch = () => {
     setState(true)
     console.log("Request body ===>",requestBody)
     console.log("User ===>",user)
-    post('api/github', requestBody)
+    post('/api/github', requestBody)
       .then((response) => {
         const link = checkLink(response.data.text)
         if(link){

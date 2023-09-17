@@ -26,7 +26,7 @@ const VideoSearch = () => {
     setState(true)
     console.log("Request body ===>",requestBody)
     console.log("User ===>",user)
-    post('api/video', requestBody)
+    post('/api/video', requestBody)
       .then((response) => {
         console.log("RESPONSE ===>",response.data[0].id.videoId)
         const link =response.data[0].id.videoId

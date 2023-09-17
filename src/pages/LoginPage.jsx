@@ -28,7 +28,7 @@ function LoginPage() {
     e.preventDefault();
     const requestBody = { email, password };
 
-    post('auth/login', requestBody)
+    post('/auth/login', requestBody)
       .then((response) => {
 
         console.log('JWT token', response.data.authToken);

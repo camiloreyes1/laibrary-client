@@ -9,7 +9,7 @@ const [user, setUser ] =useState(null);
 const { id } = useParams();
 
 const getUserInfo = () =>{
-  get(`users/profile/${id}`)
+  get(`/users/profile/${id}`)
   .then((results) => {
     setUser(results.data)
   })

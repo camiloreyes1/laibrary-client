@@ -26,7 +26,7 @@ const Question = () => {
     setState(true)
     console.log("Request body ===>",requestBody)
     console.log("User ===>",user)
-    post('api/search', requestBody)
+    post('/api/search', requestBody)
       .then((response) => {
         setState(false)
         console.log('GPT answer', response.data);
