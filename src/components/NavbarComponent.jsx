@@ -25,10 +25,9 @@ const NavbarComponent = () => {
             <Nav className="me-auto">
 
               {getToken() && (
-                <>
-               <Nav.Link href={`/profile/${user._id}`}>My profile</Nav.Link>
+                <div>
                <Nav.Link href="/" onClick={logOutUser}>Logout</Nav.Link>
-                </>
+                </div>
               )}
 
               {!getToken() && (

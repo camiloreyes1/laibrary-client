@@ -7,7 +7,7 @@ import GitHubSearch from "./pages/GitHubSearch";
 import Question from "./pages/Question";
 import Topic from "./pages/TopicSearch";
 import VideoSearch from "./pages/VideoSearch";
-import Profile from "./pages/Profile";
+// import Profile from "./pages/Profile";
 
 function App() {
 
@@ -34,7 +34,7 @@ function App() {
         <Route path ="/question" element={<Question/>}/>
         <Route path ="/topic" element={<Topic/>}/>
         <Route path ="/video" element={<VideoSearch/>}/>
-        <Route path ="/profile/:id" element={<Profile/>}/>
+        {/* <Route path ="/profile/:id" element={<Profile/>}/> */}
         </Route>
 
         <Route element={<NotLoggedIn />}>
