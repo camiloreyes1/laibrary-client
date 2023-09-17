@@ -16,10 +16,38 @@ const VideoSearch = () => {
     job = user.occupation;
   }
 
-  const containsOnlyLink = (text) => {
-    const urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
-    return urlPattern.test(text) && text.trim() === text;
-  }
+  const urlRegex = /(https?:\/\/[^\s]+)/;
+  const extractLink = (text) => {
+    const match = text.match(urlRegex);
+  
+    if (match) {
+      const videoUrl = match[0]; 
+      return (
+        <div>
+          <iframe
+            width="560"
+            height="315"
+            src={videoUrl} 
+            title="Embedded Video"
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+        </div>
+      );
+    } else {
+      return <p>{text}</p>;
+    }
+  };
+
+  const checkLink = (text) => {
+    const match = text.match(urlRegex);
+  
+    if (match) {
+      return true
+    } else {
+      return false
+    }
+  };
 
   const requestBody = { job, question };
 
@@ -32,10 +60,17 @@ const VideoSearch = () => {
     console.log("User ===>",user)
     post('api/video', requestBody)
       .then((response) => {
-        setState(false)
-        console.log('GPT answer', response.data);
-        setQuestion("")
-        setText(response.data.text)
+        const link = checkLink(response.data.text)
+        if(link){
+          console.log("Link ==>>",link)
+          setState(false)
+          console.log('GPT answer', response.data);
+          setQuestion("")
+          setText(response.data.text);
+        }
+        else{
+          ask(e);
+        }
       })
       .catch((error) => {
         console.log("Error", error)
@@ -50,22 +85,12 @@ const VideoSearch = () => {
       {asked && <img src="https://res.cloudinary.com/dyto7dlgt/image/upload/v1691760277/project3/spinner_jtv0k4.gif" alt="spinner" />}
 
       {gptText.length ?
-        (containsOnlyLink(gptText) ? <div>
-          <iframe
-            width="560"
-            height="315"
-            src={gptText}
-            title="Embedded Video"
-            frameBorder="0"
-            allowFullScreen>
-
-          </iframe>
-        </div> : <p>{gptText}</p>)
+        (extractLink(gptText))
         : <br></br>}
 
-      <div><Row className="mb-3">
+      <div><Row className="m-3">
         <form onSubmit={ask}>
-          <Form.Group as={Col} md="3" controlId="validationCustom01">
+          <Form.Group as={Col} md="5" controlId="validationCustom01">
 
             <Form.Label>Your Inquiry</Form.Label>
             <Form.Control

@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { Card } from "react-bootstrap";
 
 const Question = () => {
   const [question, setQuestion] = useState("");
@@ -44,11 +45,16 @@ const Question = () => {
 
       {asked && <img src="https://res.cloudinary.com/dyto7dlgt/image/upload/v1691760277/project3/spinner_jtv0k4.gif" alt="spinner" />}
 
-      {gptText.length ? <p>{gptText}</p> : <br></br>}
+      {gptText.length ? 
+      <Card className="m-4 shadow-lg p-3 mb-5 bg-body rounded">
+        <Card.Body>
+        {gptText}
+        </Card.Body>
+      </Card> : <br></br>}
 
-      <div><Row className="mb-3">
+      <div><Row className="m-3">
         <form onSubmit={ask}>
-          <Form.Group as={Col} md="3" controlId="validationCustom01">
+          <Form.Group as={Col} md="5" controlId="validationCustom01">
 
             <Form.Label>Your Question</Form.Label>
             <Form.Control

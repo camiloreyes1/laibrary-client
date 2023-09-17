@@ -14,7 +14,7 @@ const NavbarComponent = () => {
 
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="primary" data-bs-theme="dark">
+      <Navbar collapseOnSelect expand="lg" bg="dark" data-bs-theme="dark">
         <Container fluid>
           <Navbar.Brand href="/" ><p class="fw-bold m-2">
             Laibrary

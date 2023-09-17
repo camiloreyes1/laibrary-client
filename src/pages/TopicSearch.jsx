@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { Spinner } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 const TopicSearch = () => {
   const [question, setQuestion] = useState("");
@@ -12,7 +14,7 @@ const TopicSearch = () => {
   const [asked, setState] = useState(false);
   const [gptText, setText] = useState("");
   let job;
-  if(user){
+  if (user) {
     job = user.occupation;
   }
 
@@ -23,8 +25,8 @@ const TopicSearch = () => {
   const ask = (e) => {
     e.preventDefault();
     setState(true)
-    console.log("Request body ===>",requestBody)
-    console.log("User ===>",user)
+    console.log("Request body ===>", requestBody)
+    console.log("User ===>", user)
     post('api/topic', requestBody)
       .then((response) => {
         setState(false)
@@ -40,17 +42,24 @@ const TopicSearch = () => {
   }
 
   return (
-    <div>
+    <div >
 
       {asked && <img src="https://res.cloudinary.com/dyto7dlgt/image/upload/v1691760277/project3/spinner_jtv0k4.gif" alt="spinner" />}
 
-      {gptText.length ? <p>{gptText}</p> : <br></br>}
+      {gptText.length ?
+        <Card className="m-4 shadow-lg p-3 mb-5 bg-body rounded">
+          <Card.Body>
+            {gptText}
+          </Card.Body>
+        </Card>
 
-      <div><Row className="mb-3">
+        : <br></br>}
+
+      <div><Row className="m-3">
         <form onSubmit={ask}>
-          <Form.Group as={Col} md="3" controlId="validationCustom01">
-
-            <Form.Label>Your Inquiry</Form.Label>
+          <Form.Group as={Col} md="5" controlId="validationCustom01">
+            <br></br>
+            <Form.Label>Ask Here</Form.Label>
             <Form.Control
               onSubmit={ask}
               type="text"
@@ -64,7 +73,7 @@ const TopicSearch = () => {
           </Form.Group>
 
           <br></br>
-          <Button type="submit">Ask for info</Button>
+          <Button type="submit">Submit</Button>
         </form>
       </Row> </div>
     </div>

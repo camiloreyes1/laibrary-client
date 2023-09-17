@@ -5,10 +5,11 @@ const HomePage = () => {
   return (
     <div>
 
-      <h2>What are we learning today?</h2>
-      <div>
+      <br></br>
+      <h2 className=" m-3 d-flex flex-wrap justify-content-center">What would you like to learn?</h2>
+      <div className="d-flex flex-wrap justify-content-center">
 
-        <Card style={{ width: '15rem' }} >
+        <Card className="m-4 shadow-lg p-3 mb-5 bg-body rounded" style={{ width: '20rem' }} >
           <Link to="/topic">
             <Card.Img variant="top" src="https://res.cloudinary.com/dyto7dlgt/image/upload/v1694893022/topic_jaqcgc.png" />
           </Link>
@@ -17,34 +18,53 @@ const HomePage = () => {
               <Button href="/topic">Topics</Button>
             </Card.Title>
             <Card.Text>
-              Search for topic and get all the related information concerning your request
+              Search for topics and get all the related information concerning your request.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        
+
+        <Card className="m-4 shadow-lg p-3 mb-5 bg-body rounded" style={{ width: '20rem' }} >
+        <Link to="/video">
+            <Card.Img variant="top" src="https://res.cloudinary.com/dyto7dlgt/image/upload/v1694892922/youtube_c1ek6s.png" />
+          </Link>
+          <Card.Body>
+            <Card.Title>
+              <Button href="/video">Video Tutorials</Button>
+            </Card.Title>
+            <Card.Text>
+            Want to watch YouTube tutorials? Click here!
             </Card.Text>
           </Card.Body>
         </Card>
 
-
-
-      
-          <Link to="/video">
-            <img src="https://res.cloudinary.com/dyto7dlgt/image/upload/v1694892922/youtube_c1ek6s.png" />
-            <h4>Look for video tutorials</h4>
-            <p>Want to see YouTube tutorial? Click here!</p>
+        <Card className="m-4 shadow-lg p-3 mb-5 bg-body rounded" style={{ width: '20rem' }} >
+        <Link to="/github">
+            <Card.Img variant="top" src="https://res.cloudinary.com/dyto7dlgt/image/upload/v1694892823/logo_y3wx55.png" />
           </Link>
-       
-        
-          <Link to="/github">
-            <img src="https://res.cloudinary.com/dyto7dlgt/image/upload/v1694892823/logo_y3wx55.png" />
-            <h4>GitHub repos</h4>
-            <p>For developers and other GitHub gigs</p>
-          </Link>
-       
+          <Card.Body>
+            <Card.Title>
+              <Button href="/github">GitHub Repositories</Button>
+            </Card.Title>
+            <Card.Text>
+            Want to look for inspiration in Github? Feel free to look at some repositories
+            </Card.Text>
+          </Card.Body>
+        </Card>
 
-          <Link to="/question">
-            <img src="https://res.cloudinary.com/dyto7dlgt/image/upload/v1694893022/question_g5ijfw.png" />
-            <h4>Ask any question</h4>
-            <p>Want to ask anything in particular? Feel free to ask our online Guru</p>
+        <Card className="m-4 shadow-lg p-3 mb-5 bg-body rounded" style={{ width: '20rem' }} >
+        <Link to="/question">
+            <Card.Img variant="top" src="https://res.cloudinary.com/dyto7dlgt/image/upload/v1694893022/question_g5ijfw.png" />
           </Link>
-        
+          <Card.Body>
+            <Card.Title>
+              <Button href="/question">Ask Questions</Button>
+            </Card.Title>
+            <Card.Text>
+            Want to ask anything in particular? Feel free to ask our online Guru.
+            </Card.Text>
+          </Card.Body>
+        </Card>
       </div>
     </div>
   )
