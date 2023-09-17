@@ -15,7 +15,9 @@ const HomePage = () => {
           </Link>
           <Card.Body>
             <Card.Title>
-              <Button className="d-flex flex-wrap justify-content-center" href="/topic">Topics</Button>
+            <Link to ="/topic">
+              <Button className="d-flex flex-wrap justify-content-center" >Topics</Button>
+              </Link>
             </Card.Title>
             <Card.Text>
               Search for topics and get all the related information concerning your request.
@@ -30,7 +32,9 @@ const HomePage = () => {
           </Link>
           <Card.Body>
             <Card.Title>
-              <Button className="d-flex flex-wrap justify-content-center" href="/video">Video Tutorials</Button>
+            <Link to ="/video">
+              <Button className="d-flex flex-wrap justify-content-center">Video Tutorials</Button>
+              </Link>
             </Card.Title>
             <Card.Text>
             Want to watch YouTube tutorials? Click here!
@@ -44,7 +48,9 @@ const HomePage = () => {
           </Link>
           <Card.Body>
             <Card.Title>
-              <Button className="d-flex flex-wrap justify-content-center" href="/github">GitHub Repositories</Button>
+            <Link to ="/github">
+              <Button className="d-flex flex-wrap justify-content-center" >GitHub Repositories</Button>
+              </Link>
             </Card.Title>
             <Card.Text>
             Want to look for inspiration in Github? Feel free to look at some repositories
@@ -58,7 +64,9 @@ const HomePage = () => {
           </Link>
           <Card.Body>
             <Card.Title>
-              <Button className="d-flex flex-wrap justify-content-center" href="/question">Ask Questions</Button>
+            <Link to ="/question">
+              <Button className="d-flex flex-wrap justify-content-center" >Ask Questions</Button>
+              </Link>
             </Card.Title>
             <Card.Text>
             Want to ask anything in particular? Feel free to ask our online Guru.

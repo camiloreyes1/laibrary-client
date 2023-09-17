@@ -16,7 +16,7 @@ const NavbarComponent = () => {
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" data-bs-theme="dark">
         <Container fluid>
-          <Navbar.Brand href="/" ><p class="fw-bold m-2">
+          <Navbar.Brand to="/" ><p class="fw-bold m-2">
             AISeek
           </p>
           </Navbar.Brand>
@@ -26,14 +26,14 @@ const NavbarComponent = () => {
 
               {getToken() && (
                 <div>
-               <Nav.Link href="/" onClick={logOutUser}>Logout</Nav.Link>
+               <Link to="/" onClick={logOutUser}>Logout</Link>
                 </div>
               )}
 
               {!getToken() && (
                 <>
-                  <Nav.Link href="/signup">Sign Up</Nav.Link>
-                  <Nav.Link href="/login">Login</Nav.Link>
+                  <Link to="/signup">Sign Up</Link>
+                  <Link to="/login">Login</Link>
                 </>
               )}
             </Nav>
