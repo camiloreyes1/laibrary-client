@@ -43,20 +43,20 @@ const Question = () => {
   return (
     <div>
 
-      {asked && <img src="https://res.cloudinary.com/dyto7dlgt/image/upload/v1691760277/project3/spinner_jtv0k4.gif" alt="spinner" />}
+      {asked && <img className="rounded mx-auto d-block" src="https://res.cloudinary.com/dyto7dlgt/image/upload/v1691760277/project3/spinner_jtv0k4.gif" alt="spinner" />}
 
-      {gptText.length ? 
+      {gptText.length && !asked ? 
       <Card className="m-4 shadow-lg p-3 mb-5 bg-body rounded">
         <Card.Body>
         {gptText}
         </Card.Body>
       </Card> : <br></br>}
 
-      <div><Row className="m-3">
+      <div className="m-3 flex-wrap align-self-center"><Row className="m-3">
         <form onSubmit={ask}>
-          <Form.Group as={Col} md="5" controlId="validationCustom01">
+          <Form.Group as={Col} md="15" controlId="validationCustom01">
 
-            <Form.Label>Your Question</Form.Label>
+            <Form.Label>Ask Here</Form.Label>
             <Form.Control
               onSubmit={ask}
               type="text"

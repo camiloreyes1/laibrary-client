@@ -17,7 +17,7 @@ const NavbarComponent = () => {
       <Navbar collapseOnSelect expand="lg" bg="dark" data-bs-theme="dark">
         <Container fluid>
           <Navbar.Brand href="/" ><p class="fw-bold m-2">
-            Laibrary
+            AISeek
           </p>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

@@ -15,7 +15,7 @@ const HomePage = () => {
           </Link>
           <Card.Body>
             <Card.Title>
-              <Button href="/topic">Topics</Button>
+              <Button className="d-flex flex-wrap justify-content-center" href="/topic">Topics</Button>
             </Card.Title>
             <Card.Text>
               Search for topics and get all the related information concerning your request.
@@ -30,7 +30,7 @@ const HomePage = () => {
           </Link>
           <Card.Body>
             <Card.Title>
-              <Button href="/video">Video Tutorials</Button>
+              <Button className="d-flex flex-wrap justify-content-center" href="/video">Video Tutorials</Button>
             </Card.Title>
             <Card.Text>
             Want to watch YouTube tutorials? Click here!
@@ -44,7 +44,7 @@ const HomePage = () => {
           </Link>
           <Card.Body>
             <Card.Title>
-              <Button href="/github">GitHub Repositories</Button>
+              <Button className="d-flex flex-wrap justify-content-center" href="/github">GitHub Repositories</Button>
             </Card.Title>
             <Card.Text>
             Want to look for inspiration in Github? Feel free to look at some repositories
@@ -58,7 +58,7 @@ const HomePage = () => {
           </Link>
           <Card.Body>
             <Card.Title>
-              <Button href="/question">Ask Questions</Button>
+              <Button className="d-flex flex-wrap justify-content-center" href="/question">Ask Questions</Button>
             </Card.Title>
             <Card.Text>
             Want to ask anything in particular? Feel free to ask our online Guru.
