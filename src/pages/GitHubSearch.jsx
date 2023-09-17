@@ -23,6 +23,7 @@ const GitHubSearch = () => {
     const match = text.match(urlRegex);
   
     if (match) {
+      console.log("Match ===>", match)
       const ourUrl = match[0]; 
       window.open(ourUrl, '_blank');
     } else {
@@ -33,7 +34,7 @@ const GitHubSearch = () => {
   const checkLink = (text) => {
     const match = text.match(urlRegex);
   
-    if (match && match[0] !== "https://github.com/)." && match[1] !== "https://github.com/).") {
+    if (match && match[0] !== "https://github.com/" && match[1] !== "https://github.com/" ) {
       console.log("Match ===>", match)
       return true
     } else {

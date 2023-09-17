@@ -1,6 +1,7 @@
 import { post } from "../services/authService";
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import { useNavigate } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -10,44 +11,11 @@ const VideoSearch = () => {
   const [question, setQuestion] = useState("");
   const { user } = useContext(AuthContext);
   const [asked, setState] = useState(false);
-  const [gptText, setText] = useState("");
+  const navigate = useNavigate();
   let job;
   if(user){
     job = user.occupation;
   }
-
-  const urlRegex = /(https?:\/\/[^\s]+)/;
-  const extractLink = (text) => {
-    const match = text.match(urlRegex);
-  
-    if (match) {
-      const videoUrl = match[0]; 
-      return (
-        <div>
-          <iframe
-            width="560"
-            height="315"
-            src={videoUrl} 
-            title="Embedded Video"
-            frameBorder="0"
-            allowFullScreen
-          ></iframe>
-        </div>
-      );
-    } else {
-      return <p>{text}</p>;
-    }
-  };
-
-  const checkLink = (text) => {
-    const match = text.match(urlRegex);
-  
-    if (match) {
-      return true
-    } else {
-      return false
-    }
-  };
 
   const requestBody = { job, question };
 
@@ -60,17 +28,10 @@ const VideoSearch = () => {
     console.log("User ===>",user)
     post('api/video', requestBody)
       .then((response) => {
-        const link = checkLink(response.data.text)
-        if(link){
-          console.log("Link ==>>",link)
-          setState(false)
-          console.log('GPT answer', response.data);
-          setQuestion("")
-          setText(response.data.text);
-        }
-        else{
-          ask(e);
-        }
+        console.log("RESPONSE ===>",response.data[0].id.videoId)
+        const link =response.data[0].id.videoId
+        window.open(`https://www.youtube.com/watch?v=${link}`, '_blank');
+        navigate("/")
       })
       .catch((error) => {
         console.log("Error", error)
@@ -83,10 +44,6 @@ const VideoSearch = () => {
     <div>
 
       {asked && <img  className="rounded mx-auto d-block" src="https://res.cloudinary.com/dyto7dlgt/image/upload/v1691760277/project3/spinner_jtv0k4.gif" alt="spinner" />}
-
-      {gptText.length && !asked ?
-        (extractLink(gptText))
-        : <br></br>}
 
       <div className="m-3 flex-wrap align-self-center"><Row className="m-3">
         <form onSubmit={ask}>
