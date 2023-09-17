@@ -17,10 +17,12 @@ const NavbarComponent = () => {
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" data-bs-theme="dark">
         <Container fluid>
-          <Navbar.Brand to="/" ><p class="fw-bold m-2">
+        <Link to = "/">
+          <Navbar.Brand ><p class="fw-bold m-2">
             AISeek
           </p>
           </Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
