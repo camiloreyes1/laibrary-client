@@ -26,7 +26,7 @@ const NavbarComponent = () => {
 
               {getToken() && (
                 <>
-               <Nav.Link href="/profile">My profile</Nav.Link>
+               <Nav.Link href={`/profile/${user._id}`}>My profile</Nav.Link>
                <Nav.Link href="/" onClick={logOutUser}>Logout</Nav.Link>
                 </>
               )}

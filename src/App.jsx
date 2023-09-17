@@ -34,7 +34,7 @@ function App() {
         <Route path ="/question" element={<Question/>}/>
         <Route path ="/topic" element={<Topic/>}/>
         <Route path ="/video" element={<VideoSearch/>}/>
-        <Route path ="/profile" element={<Profile/>}/>
+        <Route path ="/profile/:id" element={<Profile/>}/>
         </Route>
 
         <Route element={<NotLoggedIn />}>
