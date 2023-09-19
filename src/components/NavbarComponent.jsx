@@ -1,9 +1,7 @@
 import { useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { Link } from "react-router-dom"
+import { Navbar, Container, Nav } from 'react-bootstrap';
+import {NavLink } from 'react-router-dom';
 
 const NavbarComponent = () => {
 
@@ -15,36 +13,39 @@ const NavbarComponent = () => {
 
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="dark" data-bs-theme="dark">
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container fluid>
-          <Navbar.Brand >
-          <Link to = "/">
-          <p class="fw-bold m-2">
-            AISeek
-          </p>
-          </Link>
+          <Navbar.Brand>
+            <NavLink className="nav-link" to="/">
+              AISeek
+            </NavLink>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-
               {getToken() && (
                 <div>
-               <Link to="/" onClick={logOutUser}>Logout</Link>
+                  <NavLink to="/" onClick={logOutUser} className="nav-link">
+                    Logout
+                  </NavLink>
                 </div>
               )}
 
               {!getToken() && (
                 <>
-                  <Link to="/signup">Sign Up</Link>
-                  <Link to="/login">Login</Link>
+                  <NavLink to="/signup" className="nav-link">
+                    Sign Up
+                  </NavLink>
+
+                  <NavLink to="/login" className="nav-link">
+                    Login
+                  </NavLink>
                 </>
               )}
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
     </div>
   )
 }

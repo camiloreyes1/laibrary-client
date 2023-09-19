@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { post } from "../services/authService";
 
@@ -118,7 +118,7 @@ function SignupPage() {
           <br></br>
           <div className="d-grid gap-2">
 
-        <Button  type="submit" size="md">Sign Up</Button>
+        <Button  type="submit" size="md" variant="secondary">Sign Up</Button>
 
           </div>
         </Form.Group>
@@ -131,7 +131,17 @@ function SignupPage() {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p className="d-flex flex-wrap justify-content-xl-center">Already have account?</p>
-      <Link className="d-flex flex-wrap justify-content-xl-center" to="/login"> Login</Link>
+      <NavLink
+          className="d-flex flex-wrap justify-content-xl-center"
+          to="/signup"
+          style={{
+            fontWeight: "bold",
+            textDecoration: "none",
+            color: "blue",
+          }}
+        >
+          Login
+        </NavLink>
       </form>
 
         

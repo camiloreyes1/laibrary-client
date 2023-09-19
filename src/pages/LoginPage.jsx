@@ -1,8 +1,7 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, NavLink} from "react-router-dom";
 import { post } from "../services/authService";
-
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -45,59 +44,66 @@ function LoginPage() {
   return (
     <div className="LoginPage">
       <div class="m-3">
-
         <br></br>
 
-      <h1 className="d-flex flex-wrap justify-content-xl-center">Login</h1>
-      <br></br>
+        <h1 className="d-flex flex-wrap justify-content-xl-center">Login</h1>
+        <br></br>
 
-      <div className="d-flex flex-wrap justify-content-xl-center">
+        <div className="d-flex flex-wrap justify-content-xl-center">
+          <Row className="mb-3">
+            <form onSubmit={handleLoginSubmit}>
+              <Form.Group as={Col} md="12" controlId="validationCustom01">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  onSubmit={handleLoginSubmit}
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={handleEmail}
+                ></Form.Control>
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              </Form.Group>
 
-      <Row className="mb-3">
-        <form onSubmit={handleLoginSubmit}>
-          <Form.Group as={Col} md="12" controlId="validationCustom01">
+              <Form.Group as={Col} md="15" controlId="validationCustom02">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  onSubmit={handleLoginSubmit}
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={handlePassword}
+                />
+              </Form.Group>
+              <br></br>
+              <div className="d-grid gap-2">
+                <Button type="submit" variant="secondary">
+                  Login
+                </Button>
+              </div>
+            </form>
+          </Row>
+        </div>
 
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              onSubmit={handleLoginSubmit}
-              type="email"
-              name="email"
-              value={email}
-              onChange={handleEmail}
-            >
-            </Form.Control>
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-          <Form.Group as={Col} md="15" controlId="validationCustom02">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              onSubmit={handleLoginSubmit}
-              type="password"
-              name="password"
-              value={password}
-              onChange={handlePassword}
-            />
-          </Form.Group>
-          <br></br>
-          <div className="d-grid gap-2">
-          <Button type="submit">Login</Button>
+        <p className="d-flex flex-wrap justify-content-xl-center">
+          Don't have an account yet?
+        </p>
 
-
-          </div>
-        </form>
-      </Row>
-
-      </div>
-
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p className="d-flex flex-wrap justify-content-xl-center">Don't have an account yet?</p>
-
-      <Link className="d-flex flex-wrap justify-content-xl-center" to="/signup"> Sign Up</Link>
+        <NavLink
+          className="d-flex flex-wrap justify-content-xl-center"
+          to="/signup"
+          style={{
+            fontWeight: "bold",
+            textDecoration: "none",
+            color: "blue",
+          }}
+        >
+          Sign Up
+        </NavLink>
       </div>
     </div>
-  )
+  );
 }
 
 export default LoginPage;
