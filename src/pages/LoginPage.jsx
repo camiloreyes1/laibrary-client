@@ -84,7 +84,7 @@ function LoginPage() {
           </Row>
         </div>
 
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        {errorMessage && <p className="error-message d-flex justify-content-center">{errorMessage}</p>}
 
         <p className="d-flex flex-wrap justify-content-xl-center">
           Don't have an account yet?

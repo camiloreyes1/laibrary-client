@@ -22,7 +22,7 @@ const HomePage = () => {
           </Link>
           <Card.Body>
             <Card.Title>
-              <Link to="/topic" className="d-flex justify-content-center ">
+              <Link to="/topic" className="d-flex justify-content-center">
                 <Button className="d-flex flex-wrap justify-content-center ">
                   Topics
                 </Button>
@@ -47,7 +47,7 @@ const HomePage = () => {
           </Link>
           <Card.Body>
             <Card.Title>
-              <Link to="/video">
+              <Link to="/video" className="d-flex justify-content-center">
                 <Button className="d-flex flex-wrap justify-content-center">
                   Video Tutorials
                 </Button>
@@ -71,7 +71,7 @@ const HomePage = () => {
           </Link>
           <Card.Body>
             <Card.Title>
-              <Link to="/github">
+              <Link to="/github" className="d-flex justify-content-center">
                 <Button className="d-flex flex-wrap justify-content-center">
                   GitHub Repositories
                 </Button>
@@ -96,7 +96,7 @@ const HomePage = () => {
           </Link>
           <Card.Body>
             <Card.Title>
-              <Link to="/question">
+              <Link to="/question" className="d-flex justify-content-center">
                 <Button className="d-flex flex-wrap justify-content-center">
                   Ask Questions
                 </Button>
