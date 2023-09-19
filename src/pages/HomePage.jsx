@@ -23,7 +23,7 @@ const HomePage = () => {
           <Card.Body>
             <Card.Title>
               <Link to="/topic">
-                <Button className="d-flex flex-wrap justify-content-center">
+                <Button className="d-flex flex-wrap justify-content-center ml-10">
                   Topics
                 </Button>
               </Link>
