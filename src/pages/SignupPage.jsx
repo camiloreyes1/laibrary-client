@@ -128,7 +128,7 @@ function SignupPage() {
   
       </div>
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {errorMessage && <p className="error-message d-flex justify-content-center">{errorMessage}</p>}
 
       <p className="d-flex flex-wrap justify-content-xl-center">Already have account?</p>
       <NavLink
